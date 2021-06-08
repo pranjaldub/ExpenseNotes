@@ -46,7 +46,7 @@ const App = () => {
       <h2>Let's get started!</h2>
       <NewExpense getExpense={addExpense}></NewExpense>
 
-      <Expenses items={expenses} passYear={newYear} />
+      <Expenses items={expenses} />
     </div>
   );
 };
