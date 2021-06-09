@@ -9,7 +9,7 @@ function RenderFilter(props) {
   //     var temp = [...props.items];
   //     //creating an empty list to store the filtered items
   //     var fil = [];
-  //     //looping over the temporary list
+  //     //looping over the temporary listt
   //     for (var i = 0; i < temp.length; i++) {
   //       //checking if the date attribute if list item matches with the year entered by the user
   //       if (
