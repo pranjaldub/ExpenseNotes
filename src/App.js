@@ -36,8 +36,11 @@ const App = () => {
   //adding the expense we got from the child compoenent
   const addExpense = (childData) => {
     //console.log("data recieved", childData);
-    expenses.push(childData);
-    increaseExpenseData(expenses);
+    expensedata.push(childData);
+    //getting the previous state and appending the item received from add expense and add to the main list using arrow function
+    increaseExpenseData((prevState) => {
+      return [childData, ...prevState];
+    });
     console.log("increased expense", expensedata);
   };
 
@@ -45,8 +48,8 @@ const App = () => {
     <div>
       <h2>Let's get started!</h2>
       <NewExpense getExpense={addExpense}></NewExpense>
-
-      <Expenses items={expenses} />
+      {/* passing the updated list to the component to dynamically display the list */}
+      <Expenses items={expensedata} />
     </div>
   );
 };
