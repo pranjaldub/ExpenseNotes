@@ -111,7 +111,7 @@ const ExpenseForm = (propsdata) => {
           ></input>
         </div>
       </div>
-      <button type="submit">Submit form</button>
+      <button type="submit">Add Expense</button>
     </form>
   );
 };

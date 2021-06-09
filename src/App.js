@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import Expenses from "./components/Expenses/Expenses";
+import HiddenAdd from "./components/Expenses/HiddenAdd";
 
 import NewExpense from "./components/NewExpense/NewExpense";
 const App = () => {
@@ -43,11 +44,21 @@ const App = () => {
     });
     console.log("increased expense", expensedata);
   };
-
+  const [show, setShow] = useState(false);
+  const [cancel, setCancel] = useState(false);
+  const functionHide = () => {
+    setShow(!show);
+  };
   return (
     <div>
       <h2>Let's get started!</h2>
-      <NewExpense getExpense={addExpense}></NewExpense>
+      <HiddenAdd
+        // onClick={functionHide}
+        cancel={functionHide}
+        display={show}
+        getExpense={addExpense}
+      ></HiddenAdd>
+
       {/* passing the updated list to the component to dynamically display the list */}
       <Expenses items={expensedata} />
     </div>
