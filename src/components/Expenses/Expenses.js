@@ -43,6 +43,7 @@ const Expenses = (props) => {
         selectedYear={newYear}
         childYear={addChildExpense}
       ></FilterExpense>
+
       <Card className="expenses">
         {/* iterating over the filtered list , by using map function ,  which picks each value and convert them to whatever form specified in the map argument
         {filtered.map((items_percount) => (

@@ -1,5 +1,5 @@
 //form logic to inoput new expense data
-
+import "./NewExpense.css";
 import ExpenseForm from "./ExpenseForm";
 const newExpense = (props) => {
   const getDetails = (recievedData) => {
@@ -8,7 +8,7 @@ const newExpense = (props) => {
   };
 
   return (
-    <div>
+    <div className="new-expense">
       {/* passing the pointer of parent function to the child component so that the child component can access it to pass the value */}
       <ExpenseForm detailsFromChild={getDetails}></ExpenseForm>
     </div>

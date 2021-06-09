@@ -37,11 +37,14 @@ const App = () => {
   //adding the expense we got from the child compoenent
   const addExpense = (childData) => {
     //console.log("data recieved", childData);
-    expensedata.push(childData);
-    //getting the previous state and appending the item received from add expense and add to the main list using arrow function
+    //expensedata.push(childData);
     increaseExpenseData((prevState) => {
       return [childData, ...prevState];
     });
+    //getting the previous state and appending the item received from add expense and add to the main list using arrow function
+    // increaseExpenseData((prevState) => {
+    //   return [childData, ...prevState];
+
     console.log("increased expense", expensedata);
   };
   const [show, setShow] = useState(false);

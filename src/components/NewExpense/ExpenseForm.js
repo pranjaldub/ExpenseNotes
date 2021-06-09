@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "./ExpenseForm.css";
 //here input props is the function input passed from parent compoenent to the child component which contains a fucntion using which we can pass the value generated here
 const ExpenseForm = (propsdata) => {
   //MULTIPLE STATE APPROACH
@@ -80,8 +80,8 @@ const ExpenseForm = (propsdata) => {
   return (
     //   use onSubmit on form tag for submitting all the input details
     <form onSubmit={submitForm}>
-      <div>
-        <div>
+      <div className="new-expense__controls">
+        <div className="new-expense__control">
           <label>Title</label>
           {/* here we can either call the functions using different state or the fucntions using same state but assigning different values */}
           <input
@@ -90,7 +90,7 @@ const ExpenseForm = (propsdata) => {
             onChange={changeTitle}
           ></input>
         </div>
-        <div>
+        <div className="new-expense__control">
           <label>Amount</label>
           <input
             type="number"
@@ -100,7 +100,7 @@ const ExpenseForm = (propsdata) => {
             onChange={changeAmount}
           ></input>
         </div>
-        <div>
+        <div className="new-expense__control">
           <label>date</label>
           <input
             type="date"
@@ -111,7 +111,9 @@ const ExpenseForm = (propsdata) => {
           ></input>
         </div>
       </div>
-      <button type="submit">Add Expense</button>
+      <div className="new-expense__actions">
+        <button type="submit">Add Expense</button>
+      </div>
     </form>
   );
 };

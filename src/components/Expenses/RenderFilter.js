@@ -3,6 +3,7 @@
 
 import React, { useState } from "react";
 import ExpenseItem from "./ExpenseItem";
+import ExpensesChart from "./ExpensesChart";
 function RenderFilter(props) {
   //const [filtered, setfiltered] = useState(props.items);
 
@@ -57,6 +58,7 @@ function RenderFilter(props) {
             />
           ))
         )} */}
+        <ExpensesChart expenses={fil} />
         {fil.map((items_percount) => (
           <ExpenseItem
             key={items_percount.id}
@@ -68,7 +70,12 @@ function RenderFilter(props) {
       </div>
     );
   } else {
-    return <h2>No items available</h2>;
+    return (
+      <div>
+        <ExpensesChart expenses={fil} />
+        <h2>No items available</h2>
+      </div>
+    );
   }
 }
 export default RenderFilter;
