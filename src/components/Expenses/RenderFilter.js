@@ -1,3 +1,6 @@
+//This component will render the list items which are passed as input through props from expenses component dynamically by using props.year as thhe criterial of filtration
+//of the original list
+
 import React, { useState } from "react";
 import ExpenseItem from "./ExpenseItem";
 function RenderFilter(props) {
@@ -35,19 +38,37 @@ function RenderFilter(props) {
       fil.push(temp[i]);
     }
   }
+  //if no items available  ,  we can either use return in if and else like here OR use ternary operator in the return part as shown below --->
+  if (fil.length > 0) {
+    return (
+      <div>
+        {/* iterating over the filtered list , by using map function ,  which picks each value and convert them to whatever form specified in the map argument */}
 
-  return (
-    <div>
-      {/* iterating over the filtered list , by using map function ,  which picks each value and convert them to whatever form specified in the map argument */}
-      {fil.map((items_percount) => (
-        <ExpenseItem
-          key={items_percount.id}
-          title={items_percount.title}
-          amount={items_percount.amount}
-          date={items_percount.date}
-        />
-      ))}
-    </div>
-  );
+        {/* //we can apply condition in the return part too using ternary operator */}
+        {/* {fil.length === 0 ? (
+          <h2>No items available</h2>
+        ) : (
+          fil.map((items_percount) => (
+            <ExpenseItem
+              key={items_percount.id}
+              title={items_percount.title}
+              amount={items_percount.amount}
+              date={items_percount.date}
+            />
+          ))
+        )} */}
+        {fil.map((items_percount) => (
+          <ExpenseItem
+            key={items_percount.id}
+            title={items_percount.title}
+            amount={items_percount.amount}
+            date={items_percount.date}
+          />
+        ))}
+      </div>
+    );
+  } else {
+    return <h2>No items available</h2>;
+  }
 }
 export default RenderFilter;
